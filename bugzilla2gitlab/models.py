@@ -63,7 +63,7 @@ class Issue(object):
         self.load_fields(bugzilla_fields)
 
     def load_fields(self, fields):
-        self.title = fields["short_desc"]
+        self.title = u"#B.{0:0>4}: {1}".format(fields["bug_id"], fields["short_desc"])
         self.sudo = conf.gitlab_users[conf.bugzilla_users[fields["reporter"]]]
         self.assignee_ids = [conf.gitlab_users[conf.bugzilla_users[fields["assigned_to"]]]]
         self.created_at = format_utc(fields["creation_ts"])
