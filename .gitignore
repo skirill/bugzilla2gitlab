@@ -60,3 +60,6 @@ target/
 # virtualenv
 venv/
 ENV/
+
+# PyCharm
+.idea/
